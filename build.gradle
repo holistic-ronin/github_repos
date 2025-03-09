@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'io.quarkus'
+    id 'com.diffplug.spotless' version '6.21.0'
 }
 
 repositories {
@@ -34,4 +35,13 @@ compileJava {
 
 compileTestJava {
     options.encoding = 'UTF-8'
+}
+
+spotless {
+    java {
+        importOrder()
+        removeUnusedImports()
+        googleJavaFormat('1.17.0')
+        formatAnnotations()
+    }
 }
