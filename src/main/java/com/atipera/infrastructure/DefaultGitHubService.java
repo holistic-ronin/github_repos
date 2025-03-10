@@ -26,7 +26,7 @@ public class DefaultGitHubService implements GitHubService {
                         new jakarta.ws.rs.NotFoundException(
                             "GitHub user not found or has no repositories"));
               }
-              final List<Uni<RepositoryResponseDto>> repoUnis =
+              final var repoUnis =
                   repos.stream()
                       .filter(repo -> !repo.fork())
                       .map(
